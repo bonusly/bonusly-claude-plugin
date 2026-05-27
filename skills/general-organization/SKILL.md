@@ -1,6 +1,6 @@
 ---
 name: general-organization
-description: Tools for navigating the organization like getting departments, locations, users, managers, etc.
+description: "Tools for navigating the organization like getting departments, locations, users, managers, etc."
 ---
 
 Tools for navigating the organization like getting departments, locations, users, managers, etc.

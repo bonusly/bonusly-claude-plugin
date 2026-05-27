@@ -1,6 +1,6 @@
 ---
 name: recognition-program-management
-description: Tools for giving awards and managing the recognition program, give balances, and redemptions.
+description: "Tools for giving awards and managing the recognition program, give balances, and redemptions."
 ---
 
 Tools for giving awards and managing the recognition program, give balances, and redemptions.
@@ -13,8 +13,5 @@ This plugin provides the following tools:
 - **adminDeactivateUser**: Schedule a user in the caller's company for deactivation.
 - **adminGetGiveBalance**: Fetch a user's giving balance line items with pagination.
 - **adminCreateGiveBalanceIncrement**: Add a giving balance increment (e.g. admin_initiated_boost) to a user in the caller's company.
-- **adminRewardsApproveRedemption**: Approves a pending reward redemption for the caller's company.
-- **adminRewardsDeclineRedemption**: Declines a reward redemption for the caller's company.
-- **adminRewardsRefundRedemption**: Refunds a custom reward redemption for the caller's company. Superadmins must use the super_admin path instead.
-- **adminRewardsFulfillRedemption**: Fulfills a custom reward redemption for the caller's company.
-- **adminRewardsUnfulfillRedemption**: Marks a fulfilled custom reward redemption as unfulfilled for the caller's company.
+- **adminParticipationReport**: Returns participation report data for the caller's company, including giving/receiving rates by group (department, location, etc.) or manager and team metrics.
+- **adminUsersLastRecognized**: Returns a paginated list of users along with when they were last recognized by a specified manager.
