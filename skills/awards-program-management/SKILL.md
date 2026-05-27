@@ -1,6 +1,6 @@
 ---
 name: awards-program-management
-description: Tools for managing the awards program, including listing, creating, updating, and deleting awards.
+description: "Tools for managing the awards program, including listing, creating, updating, and deleting awards."
 ---
 
 Tools for managing the awards program, including listing, creating, updating, and deleting awards.
@@ -14,3 +14,5 @@ This plugin provides the following tools:
 - **adminDeleteAward**: Soft-delete an award in the caller's company and deactivate its giver bot.
 - **listAwards**: List custom awards in the caller's company. Supports cursor pagination. Pass type ('claimable' or 'manual') and page_size on the first call; on subsequent calls pass only the returned next_cursor.
 - **showAward**: Fetch a single award in the caller's company by id.
+- **adminRewardsTotalsReport**: Returns per-user or grouped reward spend totals for the caller's company. Use group_by to aggregate by a custom property or country.
+- **adminRewardsRedemptionsReport**: Returns paginated reward redemption records for the caller's company. Supports filtering by state, user email, date range, and fulfillment status.
