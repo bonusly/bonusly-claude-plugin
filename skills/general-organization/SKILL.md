@@ -8,6 +8,8 @@ Tools for navigating the organization like getting departments, locations, users
 This plugin provides the following tools:
 
 - **me**: Returns the authenticated user's profile (identity, locale, account state). Does not include company information, balances, or permissions.
+- **adminGetUser**: Get a single ACTIVE user's full admin profile by ID, email,
+- **adminListUsers**: List active users in the authenticated caller's company with
 - **getUser**: Fetch a single user by ID within the authenticated caller's company. Returns the user's profile fields.
 - **getUsers**: Bulk-fetch users by a list of user IDs within the authenticated caller's company.
 - **searchUsers**: Search users in the authenticated caller's company by name or email, with optional filters on location, department, manager, and reports.
