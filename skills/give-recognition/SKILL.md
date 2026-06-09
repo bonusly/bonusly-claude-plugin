@@ -1,5 +1,5 @@
 ---
-title: give-recognition
+name: give-recognition
 description: Use to give someone, or several people, on your team recognition through Bonusly!
 ---
 Recognition is the core of Bonusly and each one requires a few pieces of information: 
