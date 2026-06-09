@@ -21,4 +21,4 @@ The tool to call when actually sending the recognition is `giveRecognition`.
 
 If you don't know who you want to recognize, you can look at who's recognized you recently using the `getRecognitionReceived` tool.  You can also ask when you last recognized someone and use the `getRecognitionGivenToUsers` tool to see when you last recognized a group of users.
 
-If the user has direct report (you can find that out by using the `getDirectReports` tool), it's always a good idea to see when you last recognized them.
+If the user has direct reports (you can find that out by using the `getDirectReports` tool), it's always a good idea to see when you last recognized them.
