@@ -17,8 +17,9 @@ mkdir -p "$DIST_DIR"
 STAGING=$(mktemp -d)
 trap 'rm -rf "$STAGING"' EXIT
 
-# plugin.json goes at the root (no wrapping directory)
-cp "$PLUGIN_JSON" "$STAGING/plugin.json"
+# plugin.json must be at .claude-plugin/plugin.json
+mkdir -p "$STAGING/.claude-plugin"
+cp "$PLUGIN_JSON" "$STAGING/.claude-plugin/plugin.json"
 
 # Copy skill files, preserving their skills/<name>/SKILL.md paths
 if [ -d "$REPO_ROOT/skills" ]; then
