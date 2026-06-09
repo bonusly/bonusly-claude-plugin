@@ -14,28 +14,25 @@ ZIP_PATH="$DIST_DIR/$ZIP_NAME"
 
 mkdir -p "$DIST_DIR"
 
-# Stage into a clean temp dir so the zip has a predictable top-level directory
 STAGING=$(mktemp -d)
 trap 'rm -rf "$STAGING"' EXIT
 
-PLUGIN_DIR="$STAGING/$PLUGIN_NAME"
-mkdir -p "$PLUGIN_DIR"
+# plugin.json goes at the root (no wrapping directory)
+cp "$PLUGIN_JSON" "$STAGING/plugin.json"
 
-# plugin.json goes at the root of the plugin directory
-cp "$PLUGIN_JSON" "$PLUGIN_DIR/plugin.json"
-
-# Copy the skills directory tree (only SKILL.md files, no hidden files)
+# Copy skill files, preserving their skills/<name>/SKILL.md paths
 if [ -d "$REPO_ROOT/skills" ]; then
   find "$REPO_ROOT/skills" -name 'SKILL.md' | while read -r skill_file; do
     rel="${skill_file#$REPO_ROOT/}"
-    dest="$PLUGIN_DIR/$rel"
+    dest="$STAGING/$rel"
     mkdir -p "$(dirname "$dest")"
     cp "$skill_file" "$dest"
   done
 fi
 
-# Build the zip from the staging directory
-(cd "$STAGING" && zip -r "$ZIP_PATH" "$PLUGIN_NAME" --quiet)
+# Build the zip with files only — no directory entries
+rm -f "$ZIP_PATH"
+(cd "$STAGING" && find . -type f | zip "$ZIP_PATH" -@ --quiet)
 
 echo "Built: $ZIP_PATH"
 echo ""
