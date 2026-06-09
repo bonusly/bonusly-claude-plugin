@@ -21,6 +21,8 @@ trap 'rm -rf "$STAGING"' EXIT
 mkdir -p "$STAGING/.claude-plugin"
 cp "$PLUGIN_JSON" "$STAGING/.claude-plugin/plugin.json"
 
+cp "$REPO_ROOT/README.md" "$STAGING/README.md"
+
 # Copy skill files, preserving their skills/<name>/SKILL.md paths
 if [ -d "$REPO_ROOT/skills" ]; then
   find "$REPO_ROOT/skills" -name 'SKILL.md' | while read -r skill_file; do
