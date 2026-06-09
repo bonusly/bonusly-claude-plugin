@@ -1,15 +1,9 @@
 {
   "name": "bonusly",
-  "description": "Bonusly recognition, rewards, and reporting tools for Claude Cowork and Code.",
+  "description": "Bonusly recognition, rewards, and reporting tools for Claude Code.",
   "version": "1.0.0",
   "author": {
     "name": "Bonusly",
     "email": "support@bonus.ly"
-  },
-  "mcpServers": {
-    "bonusly": {
-      "type": "http",
-      "url": "https://bonus.ly/mcp"
-    }
   }
 }
