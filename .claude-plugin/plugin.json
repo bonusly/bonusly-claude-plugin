@@ -5,5 +5,11 @@
   "author": {
     "name": "Bonusly",
     "email": "support@bonus.ly"
+  },
+  "mcpServers": {
+    "bonusly": {
+      "type": "http",
+      "url": "https://bonus.ly/mcp"
+    }
   }
 }
