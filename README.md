@@ -39,7 +39,7 @@ Plugin marketplaces are a Claude Code feature, so org-wide distribution is done 
 
 - **Lock it down org-wide** — admins can restrict which marketplaces users may add via the [`strictKnownMarketplaces`](https://code.claude.com/docs/en/settings#strictknownmarketplaces) setting in managed settings (e.g. allowlist only `bonusly/bonusly-claude-plugin`).
 
-Alternatively, check out the [latest release](https://github.com/bonusly/bonusly-claude-plugin/releases/latest) to download and add the plugin to Claude manually. Once installed, Claude auto-discovers the skills and connects to the Bonusly MCP server defined in `plugin.json`. You'll authenticate with Bonusly the first time a tool needs it.
+Alternatively, check out the [latest release page](https://github.com/bonusly/bonusly-claude-plugin/releases/latest) to download the zip file and add the plugin to your Claude Organization manually on the [plugins page](https://claude.ai/admin-settings/plugins).  Just upload the zip file and choose whether it's automatically installed, or just available. The only issue with this approach is that the plugin doesn't automatically update as we make improvements to it, but it does give you more control!
 
 
 ## Skills
