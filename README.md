@@ -1,15 +1,15 @@
 # Bonusly Claude Plugin
 
-Bonusly recognition, rewards, and reporting tools for Claude Code. The plugin connects Claude to the Bonusly MCP server and ships a set of skills that guide common recognition, rewards, admin, and reporting workflows.
+Bonusly recognition, rewards, and reporting tools for Claude Code, Desktop or Claude.ai. The plugin connects Claude to the Bonusly MCP server and ships a set of skills that guide common recognition, rewards, admin, and reporting workflows.
 
 ## What's included
 
 - **MCP server** — connects to the Bonusly MCP endpoint (`https://bonus.ly/mcp`) over HTTP, exposing the recognition, rewards, user-admin, and reporting tools.
-- **15 skills** — task-oriented guides that tell Claude how to combine those tools safely (resolving people before acting, confirming before writes, surfacing required OAuth scopes on failure).
+- **16 skills** — task-oriented guides that tell Claude how to combine those tools safely (resolving people before acting, confirming before writes, surfacing required OAuth scopes on failure).
 
 ## Installation
 
-Install from the plugin marketplace, or add this repository as a plugin in Claude Code. Once installed, Claude auto-discovers the skills and connects to the Bonusly MCP server defined in `.mcp.json`. You'll authenticate with Bonusly the first time a tool needs it.
+Install from the plugin marketplace (eventually), or add this repository as a plugin in Claude Code. Once installed, Claude auto-discovers the skills and connects to the Bonusly MCP server defined in `plugin.json`. You'll authenticate with Bonusly the first time a tool needs it.
 
 ## Skills
 
@@ -47,6 +47,7 @@ Install from the plugin marketplace, or add this repository as a plugin in Claud
 |-------|--------------|
 | `manage-awards` | Creating, updating, reviewing, or retiring custom awards. |
 | `participation-report` | Pulling recognition participation rates by department, location, or manager team. |
+| `admin-mcp-usage` | Reporting on MCP tool usage — call counts, most-used tools, or per-date breakdowns. |
 
 ## Development
 
