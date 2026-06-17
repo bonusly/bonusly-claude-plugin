@@ -18,27 +18,6 @@ Add this repo as a marketplace in Claude Code, then install the plugin:
 
 These commands also work in the desktop app — open the Claude Code panel in Claude Desktop and run them there; the install is shared with your CLI.
 
-### Distribute to a Claude organization
-
-Plugin marketplaces are a Claude Code feature, so org-wide distribution is done through settings files, not a console screen:
-
-- **Auto-prompt a team/repo** — add the marketplace to the project's `.claude/settings.json` so members are prompted to install when they trust the folder:
-
-  ```json
-  {
-    "extraKnownMarketplaces": {
-      "bonusly": {
-        "source": { "source": "github", "repo": "bonusly/bonusly-claude-plugin" }
-      }
-    },
-    "enabledPlugins": {
-      "bonusly@bonusly": true
-    }
-  }
-  ```
-
-- **Lock it down org-wide** — admins can restrict which marketplaces users may add via the [`strictKnownMarketplaces`](https://code.claude.com/docs/en/settings#strictknownmarketplaces) setting in managed settings (e.g. allowlist only `bonusly/bonusly-claude-plugin`).
-
 Alternatively, check out the [latest release](https://github.com/bonusly/bonusly-claude-plugin/releases/latest) to download and add the plugin to Claude manually. Once installed, Claude auto-discovers the skills and connects to the Bonusly MCP server defined in `plugin.json`. You'll authenticate with Bonusly the first time a tool needs it.
 
 
