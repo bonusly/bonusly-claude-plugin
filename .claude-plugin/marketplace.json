@@ -1,0 +1,14 @@
+{
+  "name": "bonusly",
+  "owner": {
+    "name": "Bonusly",
+    "email": "support@bonus.ly"
+  },
+  "plugins": [
+    {
+      "name": "bonusly",
+      "source": "./",
+      "description": "Bonusly recognition, rewards, and reporting tools for Claude Code."
+    }
+  ]
+}

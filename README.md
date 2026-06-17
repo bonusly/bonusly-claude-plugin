@@ -9,7 +9,15 @@ Bonusly recognition, rewards, and reporting tools for Claude Code, Desktop or Cl
 
 ## Installation
 
-Install from the plugin marketplace (eventually), or add this repository as a plugin in Claude Code. Once installed, Claude auto-discovers the skills and connects to the Bonusly MCP server defined in `plugin.json`. You'll authenticate with Bonusly the first time a tool needs it.
+Add this repo as a marketplace, then install the plugin:
+
+```
+/plugin marketplace add bonusly/bonusly-claude-plugin
+/plugin install bonusly@bonusly
+```
+
+Alternatively, check out the [latest release](https://github.com/bonusly/bonusly-claude-plugin/releases/latest) or add this repository as a plugin directly. Once installed, Claude auto-discovers the skills and connects to the Bonusly MCP server defined in `plugin.json`. You'll authenticate with Bonusly the first time a tool needs it.
+
 
 ## Skills
 
