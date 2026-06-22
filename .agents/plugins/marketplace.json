@@ -1,0 +1,19 @@
+{
+  "name": "bonusly-plugins",
+  "interface": {
+    "displayName": "Bonusly Plugins"
+  },
+  "plugins": [
+    {
+      "name": "bonusly",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "category": "Business",
+      "policy": {
+        "installation": "AVAILABLE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "bonusly",
+  "version": "1.0.2",
+  "description": "Bonusly recognition, rewards, and reporting tools for ChatGPT",
+  "homepage": "https://bonus.ly",
+  "repository": "https://github.com/bonusly/bonusly-claude-plugin",
+  "license": "MIT",
+  "keywords": ["recognition", "saas", "business", "hr", "human resources"],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Bonusly",
+    "shortDescription": "Give recognition. Manage recognition programs.",
+    "longDescription": "Automate your recognition programs with ChatGPT by connecting your Bonusly data with the other systems you use to run your business! Give Bonusly awards based on events tracked in other systems, automatically verify incentive claims, understand how your recognition budget is being used, and so much more.",
+    "developerName": "Bonusly",
+    "category": "Business",
+    "capabilities": ["Read", "Write", "Administer"],
+    "websiteUrl": "https://bonus.ly",
+    "privacyPolicyURL": "https://bonus.ly/privacy_policy",
+    "termsOfServiceURL": "https://bonusly.com/terms",
+    "defaultPrompt": [
+      "Get all pending rewards for custom swag from Bonusly, create and send orders for the swag from our partner and then fulfill the rewards in Bonusly.",
+      "For every sales person that beat their quota this month according to Hubspot, give them each 100 reward points from the Sales Awards budget in Bonusly.",
+      "For all of my direct reports, look at the recognitions they've received in the last 90 days and give me a breakdown of the themes, common phrases and which departments those recognitions have come from."
+    ],
+    "brandColor": "#2E3538",
+    "composerIcon": "./assets/bonusly-mark.svg",
+    "logo": "./assets/logo-sm.svg"
+  }
+}
