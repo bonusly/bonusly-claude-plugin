@@ -7,7 +7,7 @@ Bonusly recognition, rewards, and reporting tools for Claude Code, Desktop or Cl
 ## What's included
 
 - **MCP server** — connects to the Bonusly MCP endpoint (`https://bonus.ly/mcp`) over HTTP, exposing the recognition, rewards, user-admin, and reporting tools.
-- **16 skills** — task-oriented guides that tell Claude how to combine those tools safely (resolving people before acting, confirming before writes, surfacing required OAuth scopes on failure).
+- **17 skills** — task-oriented guides that tell Claude how to combine those tools safely (resolving people before acting, confirming before writes, surfacing required OAuth scopes on failure).
 
 # Installation
 
@@ -79,6 +79,7 @@ It will open up Bonusly and take you to a page asking you to authorize Codex to 
 | `my-redemptions` | Seeing your own reward redemptions — status, claim links, or whether a redemption went through. |
 | `process-redemptions` | An admin reviews the redemption queue — approving, declining, fulfilling, or refunding requests. |
 | `rewards-spend-report` | Read-only reporting on reward spend — totals and detail by department or country. |
+| `claim-incentive` | Claiming a claimable award ("incentive") for yourself — a self-service achievement, milestone, or perk you've earned. |
 
 ## People & org admin
 
