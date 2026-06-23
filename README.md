@@ -1,13 +1,13 @@
-# Bonusly Claude Plugin
+# Bonusly Claude (and Codex) Plugin
 
-Bonusly recognition, rewards, and reporting tools for Claude Code, Desktop or Claude.ai. The plugin connects Claude to the Bonusly MCP server and ships a set of skills that guide common recognition, rewards, admin, and reporting workflows.
+Bonusly recognition, rewards, and reporting tools for Claude Code, Desktop, Claude.ai or OpenAI's Codex. The plugin connects Claude and Codex to the Bonusly MCP server and ships a set of skills that guide common recognition, rewards, admin, and reporting workflows.
 
 **Note**: We consider this early access as both it, and the [MCP server](https://docs.bonus.ly/v3.0/reference/getting-started-1) that backs it, are in active development.  Things will probably change frequently!
 
 ## What's included
 
 - **MCP server** — connects to the Bonusly MCP endpoint (`https://bonus.ly/mcp`) over HTTP, exposing the recognition, rewards, user-admin, and reporting tools.
-- **17 skills** — task-oriented guides that tell Claude how to combine those tools safely (resolving people before acting, confirming before writes, surfacing required OAuth scopes on failure).
+- **17 skills** — task-oriented guides that tell Claude and Codex how to combine those tools safely (resolving people before acting, confirming before writes, surfacing required OAuth scopes on failure).
 
 # Installation
 
