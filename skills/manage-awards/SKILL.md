@@ -14,6 +14,14 @@ To see how much has been spent on an award, call `adminRewardsTotalsReport` and 
 
 To see the employee-facing view (what people can actually see and claim), use `listAwards` or `showAward`.
 
+**Giving an award**
+
+Use `giveAward` to hand a manual award to one or more recipients. First find the award with `listAwards` (or `adminListAwards`) to get its `award_id` — or pass `award_name` (exact, case-insensitive). `recipients` is an array of user ids, emails, or display names; no `@mention` formatting needed.
+
+The award itself dictates which extra inputs are honored. Check the award's `amount_editable`, `reason_editable`, and `bonus_privacy_changeable` flags (returned by `listAwards`) before offering to set `amount`, `message`, or `privacy` — they're silently ignored otherwise. `hide_giver` is always available.
+
+Giving creates an approval request. Auto-approved awards return the created `bonus` immediately; awards with an approval process return a pending `approval_request` with `bonus: null` — tell the admin it's awaiting approval, don't report it as given. File attachments aren't supported over MCP.
+
 **Creating an award**
 
 Collect all required information in one pass before making any API call:

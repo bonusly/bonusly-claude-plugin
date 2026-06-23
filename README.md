@@ -9,7 +9,9 @@ Bonusly recognition, rewards, and reporting tools for Claude Code, Desktop or Cl
 - **MCP server** — connects to the Bonusly MCP endpoint (`https://bonus.ly/mcp`) over HTTP, exposing the recognition, rewards, user-admin, and reporting tools.
 - **16 skills** — task-oriented guides that tell Claude how to combine those tools safely (resolving people before acting, confirming before writes, surfacing required OAuth scopes on failure).
 
-## Installation
+# Installation
+
+## Installation in Claude 
 
 Add this repo as a marketplace in Claude Code, then install the plugin:
 
@@ -43,10 +45,24 @@ Plugin marketplaces are a Claude Code feature, so org-wide distribution is done 
 
 Alternatively, check out the [latest release page](https://github.com/bonusly/bonusly-claude-plugin/releases/latest) to download the zip file and add the plugin to your Claude Organization manually on the [plugins page](https://claude.ai/admin-settings/plugins).  Just upload the zip file and choose whether it's automatically installed, or just available. The only issue with this approach is that the plugin doesn't automatically update as we make improvements to it, but it does give you more control!
 
+## Installation in OpenAI Codex
 
-## Skills
+Installation in Codex is straightforward.  There's no _official_ marketplace for plugins yet, so installation is only supported from this repo at the moment.
 
-### Recognition
+In the Codex desktop app:
+
+* Click Plugins in the left column.
+* Next to the **+** in the top right corner, click the down arrow and choose **+ Add marketplace**.
+* The fields to fill out:
+  * Source: `bonusly/bonusly-claude-plugin`
+  * Git ref: `main`
+* Click **Add marketplace**
+
+It will open up Bonusly and take you to a page asking you to authorize Codex to act on your behalf.  Clicking **Authorize** allows Codex to make calls to the Bonusly Connector to do things like give recognition, fetch the recognition feed, etc.
+
+# Skills
+
+## Recognition
 
 | Skill | Use it when… |
 |-------|--------------|
@@ -56,7 +72,7 @@ Alternatively, check out the [latest release page](https://github.com/bonusly/bo
 | `browse-recognition-feed` | Browsing the company recognition feed, filtered by hashtag, department, location, team, type, giver, or receiver. |
 | `find-unrecognized-employees` | Finding people who haven't been recognized recently — participation gaps across a team, department, or company. |
 
-### Rewards
+## Rewards
 
 | Skill | Use it when… |
 |-------|--------------|
@@ -64,7 +80,7 @@ Alternatively, check out the [latest release page](https://github.com/bonusly/bo
 | `process-redemptions` | An admin reviews the redemption queue — approving, declining, fulfilling, or refunding requests. |
 | `rewards-spend-report` | Read-only reporting on reward spend — totals and detail by department or country. |
 
-### People & org admin
+## People & org admin
 
 | Skill | Use it when… |
 |-------|--------------|
@@ -74,7 +90,7 @@ Alternatively, check out the [latest release page](https://github.com/bonusly/bo
 | `manage-giving-balances` | Checking a user's giving balance or granting a points boost. |
 | `explore-org-chart` | Navigating the reporting hierarchy — manager chains, reporting trees, top-level users. |
 
-### Awards & reporting
+## Awards & reporting
 
 | Skill | Use it when… |
 |-------|--------------|
@@ -82,7 +98,7 @@ Alternatively, check out the [latest release page](https://github.com/bonusly/bo
 | `participation-report` | Pulling recognition participation rates by department, location, or manager team. |
 | `admin-mcp-usage` | Reporting on MCP tool usage — call counts, most-used tools, or per-date breakdowns. |
 
-## Development
+# Development
 
 - Skills live in `skills/<name>/SKILL.md` and are auto-discovered — no manifest registration needed.
 - `.claude/TOOLS.md` is a reference list of the available MCP tools, used when authoring new skills.
