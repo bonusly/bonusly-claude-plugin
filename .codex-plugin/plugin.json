@@ -1,6 +1,6 @@
 {
   "name": "bonusly",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Bonusly recognition, rewards, and reporting tools for ChatGPT",
   "homepage": "https://bonus.ly",
   "repository": "https://github.com/bonusly/bonusly-claude-plugin",
