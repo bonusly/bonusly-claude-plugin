@@ -43,4 +43,6 @@ Ask what they want to change. Show the current value alongside the proposed new 
 
 Identify the award the same way as for updates. Before proceeding, warn the admin: `adminDeleteAward` is a soft-delete that deactivates the award and disables its giver bot. Pending redemptions are **not** automatically handled — confirm the admin has a plan for those. Ask them to confirm before calling `adminDeleteAward`.
 
+**If a write call (`adminCreateAward`, `adminUpdateAward`, `giveAward`, `adminDeleteAward`) reports an error, don't blindly retry.** A timeout or network error can come back *after* the write succeeded, and a retry risks a duplicate award, a double award grant, or a redundant delete. First verify the current state — `adminListAwards`/`adminShowAward` for award changes, `adminRewardsRedemptionsReport` or the returned bonus/approval for a `giveAward` — and only retry if it genuinely didn't take effect.
+
 **Access note:** all `admin*` award tools require `awards:administer` scope. `listAwards` and `showAward` work with `awards:read` scope only.

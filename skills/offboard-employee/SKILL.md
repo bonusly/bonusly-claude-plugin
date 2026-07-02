@@ -19,4 +19,6 @@ Some users cannot be deactivated: the last remaining company admin, and integrat
 
 Finish with a summary of what was done: reports reassigned (if any), account deactivated or reactivated, and any follow-ups still needed.
 
+**If a write call (`adminDeactivateUser`, `adminActivateUser`, `adminUpdateUser`) reports an error, don't blindly retry.** Because deactivation and activation run in the background, an error can come back even though the change was already scheduled or applied. First re-fetch the profile with `adminGetUser` to check the current state, and only retry if the change genuinely didn't take.
+
 **Access note:** these actions require `user:administer`. If a call fails on permissions, surface the required scope.

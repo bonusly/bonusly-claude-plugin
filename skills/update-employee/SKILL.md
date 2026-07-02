@@ -23,4 +23,6 @@ Make the change with `adminUpdateUser`. It requires `user_id` and accepts any su
 
 Two things can block an edit: manual edits may be disabled for **HRIS-managed users** (their profile is synced from an external system), and these actions require `user:administer`. If a call fails for either reason, surface the error message plainly rather than retrying.
 
+**If `adminUpdateUser` reports a timeout or network error (as opposed to the block reasons above), don't blindly retry** — the update may have applied anyway. First re-fetch with `adminGetUser` to see whether the change took effect, and only retry the fields that genuinely didn't change.
+
 Finish with a short summary of what changed (and what stayed the same), and offer related follow-ups — e.g. reassigning their direct reports too, or sending recognition to welcome a role change.

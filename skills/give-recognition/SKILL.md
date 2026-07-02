@@ -33,3 +33,5 @@ Always ask the user to approve the final recognition text and point value before
 * **Undo / delete** — use `deleteRecognition` with the recognition's `id`. This is destructive and cannot be reversed, so confirm explicitly ("Yes, delete it") before calling it.
 
 If you don't have the recognition's `id`, find it first — e.g. via `getRecognitionGiven` for the caller, or `searchRecognitions`.
+
+**If a write call (`giveRecognition`, `updateRecognition`, `deleteRecognition`) reports an error, don't blindly retry.** Timeouts and network errors can come back *after* the write already succeeded, and a blind retry risks a duplicate recognition (or a double point charge). First verify whether it actually took effect — re-fetch with `getRecognitionGiven` or `getRecognition` — and only retry if it genuinely didn't happen.

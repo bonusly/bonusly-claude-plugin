@@ -28,6 +28,8 @@ Present all draft messages to the manager for review and approval before sending
 
 Send recognitions one at a time via `giveRecognition` and report success or failure after each. Finish with a summary: who was recognized, total points spent, and remaining balance.
 
+**If a `giveRecognition` call reports an error, don't blindly retry.** A timeout or network error can come back *after* the recognition already posted, and re-sending risks a duplicate post and a double point charge — costly when recognizing a whole team. First verify whether it took effect — re-fetch with `getRecognitionGivenToUsers` or `getRecognitionGiven` — and only re-send to that person if it genuinely didn't go through.
+
 **If the caller has no direct reports**, let them know and offer to help recognize a specific colleague instead using the standard `give-recognition` workflow.
 
 **If `adminUsersLastRecognized` fails** (access-gated for non-admins), fall back to asking the manager directly: "When did you last recognize each person on your team?" and use that to guide prioritization.

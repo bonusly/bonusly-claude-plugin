@@ -18,6 +18,8 @@ For each redemption in the queue, present the key facts: **who** requested it, *
 
 If a fulfillment needs to be undone, use `adminRewardsUnfulfillRedemption` before taking a different action.
 
+**If a redemption action (`adminRewardsApproveRedemption`, `adminRewardsDeclineRedemption`, `adminRewardsFulfillRedemption`, `adminRewardsRefundRedemption`, `adminRewardsUnfulfillRedemption`) reports an error, don't blindly retry.** A timeout or network error can come back *after* the state change took effect, and a retry risks a double refund or an out-of-order action. First re-run `adminRewardsRedemptionsReport` for that redemption to check its current state, and only retry if it hasn't changed.
+
 After processing the queue, provide a summary: N approved, N declined, N fulfilled, N refunded. Offer to re-run the report to confirm the queue is now clear.
 
 **Access note:** all redemption action tools require `rewards:administer` scope. If any call fails with an auth error, surface the required permission clearly.

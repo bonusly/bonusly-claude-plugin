@@ -22,3 +22,5 @@ Finally, ask: **"Would you like to welcome [name] with a recognition?"** If yes,
 Finish with a summary of everything that was done: account created, profile fields confirmed, welcome recognition sent (if applicable).
 
 **If the company uses required custom properties**, the creation call may fail with a validation error listing those fields — surface them and ask for the values before retrying.
+
+**If `adminCreateUser` reports an error that isn't a clear validation failure (a timeout or network error), don't blindly retry** — the account may have been created anyway, and a retry could create a duplicate. First re-check with `adminListUsers` filtered by the email; only retry if no account exists.

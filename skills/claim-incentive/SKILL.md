@@ -16,6 +16,8 @@ Call `claimIncentive` with the incentive's `award_id` (preferred — get it from
 
 Claiming creates an approval request. Auto-approved incentives return the created `bonus` immediately. Incentives with an approval process return a pending `approval_request` with `bonus: null` — tell the user it's awaiting approval, not yet granted.
 
+**If `claimIncentive` reports an error, don't blindly retry.** A timeout or network error can come back *after* the claim already registered, and a retry risks a duplicate claim. First check with `getMyRedemptions` (or re-list to see whether a pending claim exists) and only re-claim if it genuinely didn't go through.
+
 **Proof attachments:** not supported over MCP. If an incentive requires proof, tell the user to claim it through the Bonusly web app so they can attach the artifact.
 
 **Access note:** `claimIncentive` and `listAwards`/`showAward` work with `awards:read` scope.

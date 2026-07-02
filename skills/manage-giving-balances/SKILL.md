@@ -16,6 +16,8 @@ Start by resolving the user. Use `searchUsers` or `getUser` to find them by name
 
 After granting, call `adminGetGiveBalance` again to verify the new balance and report the before/after to the admin.
 
+**If `adminCreateGiveBalanceIncrement` reports an error, don't blindly retry.** A timeout or network error can come back *after* the increment already posted, and a retry would double the granted points. First re-fetch with `adminGetGiveBalance` to check whether the increment landed, and only retry if it genuinely didn't.
+
 If the admin wants to boost several people, handle them one at a time — confirm each grant individually rather than batching, so nothing is added without explicit sign-off.
 
 To check the *caller's own* balances rather than another user's, use `getPointsBalance`.
