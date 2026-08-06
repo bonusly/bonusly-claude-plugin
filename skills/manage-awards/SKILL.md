@@ -39,6 +39,12 @@ If the admin gives a name rather than an ID, call `adminListAwards` to find the 
 
 Ask what they want to change. Show the current value alongside the proposed new value. Call `adminUpdateAward` with only the changed fields. Then call `adminShowAward` to confirm the update took effect.
 
+**Approving awards**
+
+If the admin asks about incentive approvals or award requests, use the `listAwardApprovalRequests` tool to get the list of outstanding award approvals for the user.  To get the details for each one, including documentation, use the `getAwardsApprovalRequest` tool.
+
+When the user decides to approve or deny an awards approval request, use either the `approveAwardApprovalRequest` or `denyAwardApprovalRequest` tools to perform the action.
+
 **Retiring an award**
 
 Identify the award the same way as for updates. Before proceeding, warn the admin: `adminDeleteAward` is a soft-delete that deactivates the award and disables its giver bot. Pending redemptions are **not** automatically handled — confirm the admin has a plan for those. Ask them to confirm before calling `adminDeleteAward`.
