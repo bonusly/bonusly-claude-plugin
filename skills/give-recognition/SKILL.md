@@ -4,7 +4,7 @@ description: Use to give recognition to one or more colleagues (or a group) thro
 ---
 Recognition is the core of Bonusly and each one requires a few pieces of information:
 
-* Recipients: At least one person, or a group.  Use searchUsers or getUser to look for people or groups the user may be talking about to find the id to use in `recipient_ids`.
+* Recipients: At least one person, or a group.  Use searchUsers or getUser to look for people, and `listSystemUserGroups` or `listCustomUserGroups` to find groups the user may be talking about to find the id to use in `recipient_ids`.
 * An amount: Sometimes, bonuses can have zero points, and sometimes they can't.  Use the `getPointsBalance` tool to see how many points you have available to give.
 * A reason: Why are you recognizing this person? What did they do? It should be meaningful, genuine and specific.
 * A hashtag: The hashtag to use in the recognition.  This is optional most of the time. If it's required, an error will come back and the list of hashtags will be in the required schema.
@@ -24,6 +24,16 @@ If you don't know who you want to recognize, you can look at who's recognized yo
 If the user has direct reports (you can find that out by using the `getDirectReports` tool), it's always a good idea to see when you last recognized them.
 
 If recognizing a group — `@everyone`, a department, a location, or a manager's team — you can check how many people it would reach (and who they are) before posting with `getGroupRecognitionRecipientCount`. This matters because the giver pays the point amount for *each* recipient, so a group post can cost far more than it first appears. Surface the recipient count and the total cost so the user understands the spend before approving.
+
+If the user wants to recognize multiple people, _and_ give each of those people (or groups) points, they all need to be addressed in the recognition as `@username` separately.  You can combine both regular users and groups in a recognition.
+
+When including multiple people or a group in a recognition with points attached, _each_ person will receive that number of points.  So if the recognition has `+3` in it, and has `@tim`, `@jane` and `@murray` in it, the user is spending 9 points on that recognition. Confirm that the user has enough points available to distribute that many points. If they are giving points to a group, the same thing happens: that many points are given to _every_ member of the group.  You can use the `listSystemUserGroups` and `listCustomUserGroups` tools to get the counts for every group to do the calculation and confirm that the user has enough points for the recognition. 
+
+If the user just wants to "tag" another user or group in the recognition, but _not_ give them points, you do that by using the `&` character directly followed by the user's username or the group's name.  Examples:
+
+* Individual users: `&toby.jones`
+* System groups: `&sales`
+* Custom groups: `&joe-and-tim.group`
 
 Always ask the user to approve the final recognition text and point value before sending the recognition.
 
