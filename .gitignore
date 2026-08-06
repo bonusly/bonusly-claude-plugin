@@ -1,5 +1,6 @@
 .DS_Store
 .claude
+.agents/skills
 .codex
 .ruby-lsp
 dist/
