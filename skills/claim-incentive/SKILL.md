@@ -16,8 +16,8 @@ Call `claimIncentive` with the incentive's `award_id` (preferred — get it from
 
 Claiming creates an approval request. Auto-approved incentives return the created `bonus` immediately. Incentives with an approval process return a pending `approval_request` with `bonus: null` — tell the user it's awaiting approval, not yet granted.
 
-**If `claimIncentive` reports an error, don't blindly retry.** A timeout or network error can come back *after* the claim already registered, and a retry risks a duplicate claim. First check with `getMyRedemptions` (or re-list to see whether a pending claim exists) and only re-claim if it genuinely didn't go through.
+**If `claimIncentive` reports an error, don't blindly retry.** A timeout or network error can come back *after* the claim already registered. Verify the corresponding award approval request or recognition activity before re-claiming. If a request ID is known and an authorized award admin can inspect it, use `getAwardApprovalRequest` with `approval_request_id`; this is not an employee self-service lookup. `getMyRedemptions` lists reward purchases, and re-listing awards lists programs, so neither verifies a claim. The approval inbox lists requests for the caller to decide, not all their submitted claims. If the outcome cannot be established, report it as unresolved and direct the user to their claim activity in the web app or an authorized admin; don't retry.
 
 **Proof attachments:** not supported over MCP. If an incentive requires proof, tell the user to claim it through the Bonusly web app so they can attach the artifact.
 
-**Access note:** `claimIncentive` and `listAwards`/`showAward` work with `awards:read` scope.
+**Access note:** `claimIncentive` requires `recognition:write`; `listAwards` and `showAward` require `awards:read`. Approval lookup tools require `awards:administer` and award-admin access.

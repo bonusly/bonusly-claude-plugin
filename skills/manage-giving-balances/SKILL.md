@@ -9,10 +9,10 @@ Start by resolving the user. Use `searchUsers` or `getUser` to find them by name
 **Inspect the current balance.** Call `adminGetGiveBalance` for the user to show their current giving balance line items. Present this clearly — current balance and recent increments — so the admin understands the starting point. If they only asked to check the balance, stop here.
 
 **Granting an increment requires explicit confirmation.** If the admin wants to add points:
-* Collect the **amount** and a **reason** for the increment (for example an admin-initiated boost).
-* Present back exactly what you're about to do: "Add [amount] points to [name]'s giving balance, reason: [reason]."
+* Collect the **amount** and a **reason**, sent as `description`. For an admin-granted boost, use `type: 'admin_initiated_boost'`; other types have different accounting meanings and should not be substituted.
+* Present back exactly what you're about to do: "Add [amount] points to [name]'s giving balance as an admin-initiated boost, reason: [reason]."
 * Wait for the admin to explicitly say to proceed — e.g. "Yes, grant it." Do not call `adminCreateGiveBalanceIncrement` until they do.
-* Then call `adminCreateGiveBalanceIncrement` with the user's ID, amount, and reason.
+* Then call `adminCreateGiveBalanceIncrement` with all four required fields: `user_id`, `amount`, `type`, and `description`.
 
 After granting, call `adminGetGiveBalance` again to verify the new balance and report the before/after to the admin.
 
@@ -22,4 +22,4 @@ If the admin wants to boost several people, handle them one at a time — confir
 
 To check the *caller's own* balances rather than another user's, use `getPointsBalance`.
 
-**Access note:** `adminGetGiveBalance` and `adminCreateGiveBalanceIncrement` require `user:administer` or `rewards:administer`. If a call fails on permissions, surface the required scope.
+**Access note:** `adminGetGiveBalance` and `adminCreateGiveBalanceIncrement` require `user:administer` or `finance:administer`, plus the appropriate giving-balance admin role. If a call fails on permissions, surface the required scope.
